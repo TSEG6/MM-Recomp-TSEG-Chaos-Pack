@@ -11,7 +11,7 @@ bool effectshrinkon = false;
 void startshrink(EnTest4* this, PlayState* play);
 
 ChaosEffectEntity start_shrink(PlayState* gameState) {
-    recomp_printf("Shrink On");
+
     effectshrinkon = true;
 
     PlayState* play = (PlayState*)gameState;
@@ -38,7 +38,7 @@ void endshrink(EnTest4* this, PlayState* play) {
     }
 
 ChaosEffectEntity end_shrink(PlayState* gameState) {
-    recomp_printf("Shrink Off");
+
     effectshrinkon = false;
 
     PlayState* play = (PlayState*)gameState;

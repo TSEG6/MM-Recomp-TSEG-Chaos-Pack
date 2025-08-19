@@ -14,7 +14,7 @@ extern Color_RGBA8_u32 gPlayVisMonoColor;
 
 ChaosEffectEntity start_pitch(PlayState* gameState) {
 
-    recomp_printf("Blur");
+
     effectbluron = true;
     Play_EnableMotionBlur(230);
     gPlayVisMonoColor.r = 255;
@@ -26,7 +26,7 @@ ChaosEffectEntity start_pitch(PlayState* gameState) {
 }
 
 ChaosEffectEntity end_pitch(PlayState* gameState) {
-    recomp_printf("No Blur");
+
     effectbluron = false;
     Play_EnableMotionBlur(0);
     gPlayVisMonoColor.r = 0;

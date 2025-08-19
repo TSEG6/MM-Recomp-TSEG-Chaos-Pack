@@ -17,12 +17,12 @@ static unsigned int better_rand(void) {
 }
 
 ChaosEffectEntity start_hm(PlayState* gameState) {
-    recomp_printf("Magic");
+
     effectmagicon = true;
 }
 
 ChaosEffectEntity end_hm(PlayState* gameState) {
-    recomp_printf("Magic End");
+
     effectmagicon = false;
     if (gSaveContext.save.saveInfo.playerData.magic > gSaveContext.magicCapacity /2) {
 
@@ -58,6 +58,6 @@ void RandoMagic(Player* this, PlayState* play) {
 RECOMP_CALLBACK("mm_recomp_chaos_framework", chaos_on_init)
 void register_chaos_effects_magic(void) {
 
-    chaos_register_effect(&chaos_magic, CHAOS_DISTURBANCE_MEDIUM, NULL);
+    chaos_register_effect(&chaos_magic, CHAOS_DISTURBANCE_LOW, NULL);
 
 }

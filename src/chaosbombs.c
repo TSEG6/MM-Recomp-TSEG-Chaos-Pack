@@ -17,12 +17,12 @@ static unsigned int better_rand(void) {
 }
 
 ChaosEffectEntity start_mb(PlayState* gameState) {
-    recomp_printf("Bombs");
+
     effectbombson = true;
 }
 
 ChaosEffectEntity end_mb(PlayState* gameState) {
-    recomp_printf("Bombs End");
+
     effectbombson = false;
 
     if (CUR_UPG_VALUE(UPG_BOMB_BAG) != 0) {
@@ -63,5 +63,5 @@ void RandoBomb(Player* this, PlayState* play) {
 RECOMP_CALLBACK("mm_recomp_chaos_framework", chaos_on_init)
 void register_chaos_effects_bombs(void) {
 
-    chaos_register_effect(&chaos_bombs, CHAOS_DISTURBANCE_MEDIUM, NULL);
+    chaos_register_effect(&chaos_bombs, CHAOS_DISTURBANCE_LOW, NULL);
 }

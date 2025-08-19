@@ -17,12 +17,12 @@ static unsigned int better_rand(void) {
 }
 
 ChaosEffectEntity start_ma(PlayState* gameState) {
-    recomp_printf("Arrows");
+
     effectarrowson = true;
 }
 
 ChaosEffectEntity end_ma(PlayState* gameState) {
-    recomp_printf("Arrows End");
+
     effectarrowson = false;
 
     if (CUR_UPG_VALUE(UPG_QUIVER) != 0) {
@@ -63,5 +63,5 @@ void RandoArrow(Player* this, PlayState* play) {
 RECOMP_CALLBACK("mm_recomp_chaos_framework", chaos_on_init)
 void register_chaos_effects_arrows(void) {
 
-    chaos_register_effect(&chaos_arrows, CHAOS_DISTURBANCE_MEDIUM, NULL);
+    chaos_register_effect(&chaos_arrows, CHAOS_DISTURBANCE_LOW, NULL);
 }

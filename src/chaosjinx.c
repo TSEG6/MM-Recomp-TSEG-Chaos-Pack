@@ -8,14 +8,10 @@
 
 ChaosEffectEntity jinxplayer(PlayState* gameState) {
 
-    recomp_printf("Cursed");
-
     gSaveContext.jinxTimer = 600;
 }
 
 ChaosEffectEntity fixplayer(PlayState* gameState) {
-
-    recomp_printf("Cleaned");
 
     gSaveContext.jinxTimer = 0;
 }

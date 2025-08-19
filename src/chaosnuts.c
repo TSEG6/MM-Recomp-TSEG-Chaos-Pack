@@ -17,13 +17,13 @@ static unsigned int better_rand(void) {
 }
 
 ChaosEffectEntity start_mn(PlayState* gameState) {
-    recomp_printf("Nuts");
+
 
     effectnutson = true;
 }
 
 ChaosEffectEntity end_mn(PlayState* gameState) {
-    recomp_printf("Nuts End");
+
     effectnutson = false;
     if (AMMO(ITEM_DEKU_NUT) > CUR_CAPACITY(UPG_DEKU_NUTS) /2) {
 
@@ -59,5 +59,5 @@ void RandoNut(Player* this, PlayState* play) {
 RECOMP_CALLBACK("mm_recomp_chaos_framework", chaos_on_init)
 void register_chaos_effects_nuts(void) {
 
-    chaos_register_effect(&chaos_nuts, CHAOS_DISTURBANCE_MEDIUM, NULL);
+    chaos_register_effect(&chaos_nuts, CHAOS_DISTURBANCE_LOW, NULL);
 }

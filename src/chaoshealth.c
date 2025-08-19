@@ -17,12 +17,12 @@ static unsigned int better_rand(void) {
 }
 
 ChaosEffectEntity start_ha(PlayState* gameState) {
-    recomp_printf("Health");
+
     effecthealthon = true;
 }
 
 ChaosEffectEntity end_ha(PlayState* gameState) {
-    recomp_printf("Health End");
+
     effecthealthon = false;
     if (gSaveContext.save.saveInfo.playerData.health > gSaveContext.save.saveInfo.playerData.healthCapacity / 2) {
 
@@ -57,5 +57,5 @@ void RandoHealth(Player* this, PlayState* play) {
 RECOMP_CALLBACK("mm_recomp_chaos_framework", chaos_on_init)
 void register_chaos_effects_health(void) {
 
-    chaos_register_effect(&heart_attack, CHAOS_DISTURBANCE_MEDIUM, NULL);
+    chaos_register_effect(&heart_attack, CHAOS_DISTURBANCE_LOW, NULL);
 }

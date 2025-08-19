@@ -17,13 +17,12 @@ static unsigned int better_rand(void) {
 }
 
 ChaosEffectEntity start_ms(PlayState* gameState) {
-    recomp_printf("Sticks");
+
     effectstickson = true;
 }
 
 ChaosEffectEntity end_ms(PlayState* gameState) {
 
-    recomp_printf("Sticks Off");
     effectstickson = false;
     if (AMMO(ITEM_DEKU_STICK) > CUR_CAPACITY(UPG_DEKU_STICKS) /2) {
 
@@ -59,5 +58,5 @@ void RandoStick(Player* this, PlayState* play) {
 RECOMP_CALLBACK("mm_recomp_chaos_framework", chaos_on_init)
 void register_chaos_effects_sticks(void) {
 
-    chaos_register_effect(&chaos_sticks, CHAOS_DISTURBANCE_MEDIUM, NULL);
+    chaos_register_effect(&chaos_sticks, CHAOS_DISTURBANCE_LOW, NULL);
 }

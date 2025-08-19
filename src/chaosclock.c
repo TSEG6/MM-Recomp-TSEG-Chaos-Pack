@@ -8,14 +8,14 @@
 
 ChaosEffectEntity timemess(PlayState* gameState) {
 
-    recomp_printf("Time");
+
 
     R_TIME_SPEED = 6;
 }
 
 ChaosEffectEntity timefix(PlayState* gameState) {
 
-    recomp_printf("Time End");
+
 
     R_TIME_SPEED = 3;
 }

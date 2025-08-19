@@ -17,12 +17,12 @@ static unsigned int better_rand(void) {
 }
 
 ChaosEffectEntity start_money(PlayState* gameState) {
-    recomp_printf("Rupees");
+
     effectmoneyon = true;
 }
 
 ChaosEffectEntity end_money(PlayState* gameState) {
-    recomp_printf("Rupees End");
+
 
     effectmoneyon = false;
     if (gSaveContext.save.saveInfo.playerData.rupees > CUR_CAPACITY(UPG_WALLET) / 3) {
@@ -59,5 +59,5 @@ void MoneyRando(Player* this, PlayState* play) {
 RECOMP_CALLBACK("mm_recomp_chaos_framework", chaos_on_init)
 void register_chaos_effects_money(void) {
 
-    chaos_register_effect(&rupee_rando, CHAOS_DISTURBANCE_MEDIUM, NULL);
+    chaos_register_effect(&rupee_rando, CHAOS_DISTURBANCE_LOW, NULL);
 }
