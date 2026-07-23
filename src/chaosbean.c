@@ -6,7 +6,7 @@
 #include "z64player.h"
 
 #define DURATION 160
-bool effectnutson = false;
+bool effectbeanson = false;
 
 static unsigned int seed;
 
@@ -16,16 +16,16 @@ static unsigned int better_rand(void) {
     return seed;
 }
 
-ChaosEffectEntity start_mn(PlayState* gameState) {
+ChaosEffectEntity start_mbe(PlayState* gameState) {
 
 
-    effectnutson = true;
+    effectbeanson = true;
 }
 
-ChaosEffectEntity end_mn(PlayState* gameState) {
+ChaosEffectEntity end_mbe(PlayState* gameState) {
 
-    effectnutson = false;
-    if (AMMO(ITEM_DEKU_NUT) > CUR_CAPACITY(UPG_DEKU_NUTS) /2) {
+    effectbeanson = false;
+    if (AMMO(ITEM_MAGIC_BEANS) > 20 /2) {
 
         Audio_PlaySfx(NA_SE_SY_GET_ITEM);
     }
@@ -35,29 +35,29 @@ ChaosEffectEntity end_mn(PlayState* gameState) {
     }
 }
 
-ChaosEffect chaos_nuts = {
-    .name = "Mismanaged Nuts",
+ChaosEffect chaos_bean = {
+    .name = "Mismanaged Beans",
     .duration = DURATION,
 
-    .on_start_fun = start_mn,
-    .on_end_fun = end_mn,
+    .on_start_fun = start_mbe,
+    .on_end_fun = end_mbe,
 };
 
 RECOMP_HOOK("Player_Update")
-void RandoNut(Player* this, PlayState* play) {
+void RandoBean(Player* this, PlayState* play) {
 
-    if (effectnutson && CUR_UPG_VALUE(UPG_DEKU_NUTS) != 0) {
+    if (effectbeanson && CUR_UPG_VALUE(UPG_DEKU_NUTS) != 0) {
         if (seed == 0) {
             seed = (unsigned int)osGetTime() ^ play->state.frames ^ (unsigned int)this->actor.world.pos.x;
         }
 
-        int randomNut = better_rand() % CUR_CAPACITY(UPG_DEKU_NUTS);
-            AMMO(ITEM_DEKU_NUT) = randomNut;
+        int randomBean = better_rand() % 20;
+        AMMO(ITEM_MAGIC_BEANS) = randomBean;
     }
 }
 
 RECOMP_CALLBACK("mm_recomp_chaos_framework", chaos_on_init)
-void register_chaos_effects_nuts(void) {
+void register_chaos_effects_beans(void) {
 
-    chaos_register_effect(&chaos_nuts, CHAOS_DISTURBANCE_LOW, NULL, 0);
+    chaos_register_effect(&chaos_bean, CHAOS_DISTURBANCE_LOW, NULL, 0);
 }

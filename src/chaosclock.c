@@ -6,20 +6,22 @@
 
 #define DURATION 240
 
+static s32 OriginalTimeSpeed = 0;
+
 ChaosEffectEntity timemess(PlayState* gameState) {
 
+    
+    OriginalTimeSpeed = R_TIME_SPEED;
 
-
-    R_TIME_SPEED = 6;
+    
+    R_TIME_SPEED = 10;
 }
 
 ChaosEffectEntity timefix(PlayState* gameState) {
 
-
-
-    R_TIME_SPEED = 3;
+    
+    R_TIME_SPEED = OriginalTimeSpeed;
 }
-
 
 ChaosEffect time = {
     .name = "Speedrun",
@@ -29,9 +31,8 @@ ChaosEffect time = {
     .on_end_fun = timefix,
 };
 
-
 RECOMP_CALLBACK("mm_recomp_chaos_framework", chaos_on_init)
 void register_chaos_effects_time(void) {
 
-    chaos_register_effect(&time, CHAOS_DISTURBANCE_MEDIUM, NULL);
+    chaos_register_effect(&time, CHAOS_DISTURBANCE_MEDIUM, NULL, 0);
 }

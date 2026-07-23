@@ -6,7 +6,7 @@
 #include "z64player.h"
 
 #define DURATION 160
-bool effectbombson = false;
+bool effectbombchuon = false;
 
 static unsigned int seed;
 
@@ -16,18 +16,18 @@ static unsigned int better_rand(void) {
     return seed;
 }
 
-ChaosEffectEntity start_mb(PlayState* gameState) {
+ChaosEffectEntity start_mbc(PlayState* gameState) {
 
-    effectbombson = true;
+    effectbombchuon = true;
 }
 
-ChaosEffectEntity end_mb(PlayState* gameState) {
+ChaosEffectEntity end_mbc(PlayState* gameState) {
 
-    effectbombson = false;
+    effectbombchuon = false;
 
     if (CUR_UPG_VALUE(UPG_BOMB_BAG) != 0) {
 
-        if (AMMO(ITEM_BOMB) > CUR_CAPACITY(UPG_BOMB_BAG) / 2) {
+        if (AMMO(ITEM_BOMBCHU) > CUR_CAPACITY(UPG_BOMB_BAG) / 2) {
 
             Audio_PlaySfx(NA_SE_SY_GET_ITEM);
         }
@@ -39,29 +39,29 @@ ChaosEffectEntity end_mb(PlayState* gameState) {
     }
 }
 
-ChaosEffect chaos_bombs = {
-    .name = "Mismanaged Bombs",
+ChaosEffect chaos_bombchus = {
+    .name = "Mismanaged Bombchus",
     .duration = DURATION,
 
-    .on_start_fun = start_mb,
-    .on_end_fun = end_mb,
+    .on_start_fun = start_mbc,
+    .on_end_fun = end_mbc,
 };
 
 RECOMP_HOOK("Player_Update")
-void RandoBomb(Player* this, PlayState* play) {
+void RandoBombchu(Player* this, PlayState* play) {
 
-    if (effectbombson && CUR_UPG_VALUE(UPG_BOMB_BAG) != 0) {
+    if (effectbombchuon && CUR_UPG_VALUE(UPG_BOMB_BAG) != 0) {
         if (seed == 0) {
             seed = (unsigned int)osGetTime() ^ play->state.frames ^ (unsigned int)this->actor.world.pos.x;
         }
 
-        int randomBomb = better_rand() % CUR_CAPACITY(UPG_BOMB_BAG);
-            AMMO(ITEM_BOMB) = randomBomb;
+        int randomBombchu = better_rand() % CUR_CAPACITY(UPG_BOMB_BAG);
+        AMMO(ITEM_BOMBCHU) = randomBombchu;
     }
 }
 
 RECOMP_CALLBACK("mm_recomp_chaos_framework", chaos_on_init)
-void register_chaos_effects_bombs(void) {
+void register_chaos_effects_bombchu(void) {
 
-    chaos_register_effect(&chaos_bombs, CHAOS_DISTURBANCE_LOW, NULL, 0);
+    chaos_register_effect(&chaos_bombchus, CHAOS_DISTURBANCE_LOW, NULL, 0);
 }

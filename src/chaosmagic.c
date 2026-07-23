@@ -58,6 +58,6 @@ void RandoMagic(Player* this, PlayState* play) {
 RECOMP_CALLBACK("mm_recomp_chaos_framework", chaos_on_init)
 void register_chaos_effects_magic(void) {
 
-    chaos_register_effect(&chaos_magic, CHAOS_DISTURBANCE_LOW, NULL);
+    chaos_register_effect(&chaos_magic, CHAOS_DISTURBANCE_LOW, NULL, 0);
 
 }

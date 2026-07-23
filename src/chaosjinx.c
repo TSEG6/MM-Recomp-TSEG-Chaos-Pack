@@ -29,5 +29,5 @@ ChaosEffect jinx = {
 RECOMP_CALLBACK("mm_recomp_chaos_framework", chaos_on_init)
 void register_chaos_effects_jinx(void) {
 
-    chaos_register_effect(&jinx, CHAOS_DISTURBANCE_HIGH, NULL);
+    chaos_register_effect(&jinx, CHAOS_DISTURBANCE_HIGH, NULL, 0);
 }

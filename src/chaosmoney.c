@@ -59,5 +59,5 @@ void MoneyRando(Player* this, PlayState* play) {
 RECOMP_CALLBACK("mm_recomp_chaos_framework", chaos_on_init)
 void register_chaos_effects_money(void) {
 
-    chaos_register_effect(&rupee_rando, CHAOS_DISTURBANCE_LOW, NULL);
+    chaos_register_effect(&rupee_rando, CHAOS_DISTURBANCE_LOW, NULL, 0);
 }

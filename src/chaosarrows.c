@@ -63,5 +63,5 @@ void RandoArrow(Player* this, PlayState* play) {
 RECOMP_CALLBACK("mm_recomp_chaos_framework", chaos_on_init)
 void register_chaos_effects_arrows(void) {
 
-    chaos_register_effect(&chaos_arrows, CHAOS_DISTURBANCE_LOW, NULL);
+    chaos_register_effect(&chaos_arrows, CHAOS_DISTURBANCE_LOW, NULL, 0);
 }

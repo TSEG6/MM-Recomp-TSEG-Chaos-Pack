@@ -46,5 +46,5 @@ ChaosEffect chaos_blur = {
 RECOMP_CALLBACK("mm_recomp_chaos_framework", chaos_on_init)
 void register_chaos_effects_blur(void) {
 
-    chaos_register_effect(&chaos_blur, CHAOS_DISTURBANCE_HIGH, NULL);
+    chaos_register_effect(&chaos_blur, CHAOS_DISTURBANCE_HIGH, NULL, 0);
 }

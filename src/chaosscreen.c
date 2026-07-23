@@ -60,5 +60,5 @@ ChaosEffect shrinking = {
 RECOMP_CALLBACK("mm_recomp_chaos_framework", chaos_on_init)
 void register_chaos_effects_shrink(void) {
 
-    chaos_register_effect(&shrinking, CHAOS_DISTURBANCE_MEDIUM, NULL);
+    chaos_register_effect(&shrinking, CHAOS_DISTURBANCE_MEDIUM, NULL, 0);
 }
